@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For Someone Special</title>
+    <style>
+        body {
+            background-color: #fff0f3;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        /* 1. Animated Photo Frame Section */
+        .frame-container {
+            border: 8px solid #ff4d6d;
+            padding: 8px;
+            background: white;
+            box-shadow: 0 10px 25px rgba(255, 77, 109, 0.2);
+            border-radius: 15px;
+            margin: 20px 0;
+            width: 85%;
+            /* Responsive width */
+            max-width: 280px;
+            animation: pulseFrame 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseFrame {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 5px;
+        }
+
+        /* 2. Heart Button */
+        .heart-btn {
+            background: none;
+            border: none;
+            font-size: 70px;
+            color: #ff4d6d;
+            cursor: pointer;
+            animation: heartBeat 1.2s infinite;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        @keyframes heartBeat {
+
+            0%,
+            30%,
+            60% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.2);
+            }
+
+            45% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* 3. Confession Section */
+        #confession {
+            display: none;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            animation: fadeIn 1.5s forwards;
+            padding-bottom: 50px;
+        }
+
+        .content-text {
+            line-height: 1.6;
+            color: #444;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 20px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        .gallery img,
+        video {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 0 50px rgba(255, 77, 109, 0.5);
+            text-align: center;
+            z-index: 1000;
+            border: 3px solid #ff4d6d;
+            width: 85%;
+            max-width: 320px;
+            animation: popupPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popupPop {
+            0% {
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Floating Hearts */
+        .floating-heart {
+            position: fixed;
+            bottom: -10px;
+            color: #ff4d6d;
+            font-size: 24px;
+            user-select: none;
+            pointer-events: none;
+            z-index: 999;
+            animation: floatUp 4s linear forwards;
+        }
+
+        @keyframes floatUp {
+            to {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .secret-btn {
+            margin-top: 30px;
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: none;
+            background: #ff4d6d;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="start-view" style="text-align: center;">
+        <div class="frame-container">
+            <div class="photo-frame">
+                <img src="Main.jpeg" alt="Our Best Moment">
+            </div>
+        </div>
+        <p style="color: #ff4d6d; font-weight: bold;">Tap the heart to continue...</p>
+        <button class="heart-btn" onclick="revealMessage()">❤</button>
+    </div>
+
+    <div id="confession">
+        <h2 style="color: #ff4d6d;">Hey Junu❤️,</h2>
+
+        <div class="content-text">
+
+            <p>"I’ve realized that my favorite part of any day is the moment I get to talk to you. I really like you,
+                and I wanted you to know."</p>
+
+            <p>Hii My cutiepai finally ye time jab aap jaa rhe ho haa ik that job hee chod raha hain but yr sachi batavu
+                tera ana mere
+                life me maine expecte nahi kiya tha meri life me aap tab aye jab muje akela rehna pasand tha but ab aa
+                hee Gaye ho to
+                itne khaas bhi ban javoge pata nahi thhaa</p>
+
+            <p>Juned yk you are my happy place yr mereko na tere sath hasna , khana ,peena floor pe sath me kand karna
+                bohut pasand
+                hain me jab bhi tere sath hoti hu to me na sabse jyada safe and comfortable feel karti hu
+                Thank you meri life me aane ke liye itna sath dene ke liyee</p>
+
+            <p>Ik my cutie ke life me aage bohut kuch karna hain tuje aur pagal tu kar lega you are very strong babe bas
+                kabhi haar mat
+                manna aur teri pyari see ye muskan kabhi Jane mat dena tuje pata hain kab itna cutie lagne laga muje nai
+                pata but haa ek
+                promise karti hu meri life me agar tu hoga to shyad ham best memories bana paye aur sath reh paye bhale
+                vo rishta koi
+                bhi ho aur agar kuch bhi name nahi hoga fir bhi I am always by your side</p>
+
+
+
+            <p style="font-weight: bold; color: #ff4d6d; text-align: center;">JMiss you junu 🥹❤️</p>
+
+        </div>
+
+        <div class="gallery">
+            <img src="WhatsApp Image 2026-02-12 at 10.45.55 PM.jpeg" alt="A Memory">
+            <video controls playsinline>
+                <source src="WhatsApp Video 2026-02-12 at 10.45.55 PM.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <button class="secret-btn" onclick="showFinalPopup()">
+            I have one more secret...
+        </button>
+    </div>
+
+    <div id="finalPopup" class="popup">
+        <h1 style="color: #ff4d6d; font-size: 32px; margin-bottom: 10px;">I Miss you Junu! ❤️</h1>
+        <p style="font-size: 18px; color: #555;">More than words can ever describe.</p>
+        <button onclick="document.getElementById('finalPopup').style.display='none'"
+            style="margin-top: 15px; background: #eee; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer;">Close</button>
+    </div>
+
+    <script>
+        function revealMessage() {
+            document.getElementById('start-view').style.display = 'none';
+            document.getElementById('confession').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showFinalPopup() {
+            document.getElementById('finalPopup').style.display = 'block';
+            createHearts();
+        }
+
+        function createHearts() {
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-heart';
+                    heart.innerHTML = '❤️';
+                    heart.style.left = Math.random() * 90 + 'vw';
+                    heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                    document.body.appendChild(heart);
+                    setTimeout(() => heart.remove(), 4000);
+                }, i * 150);
+            }
+        }
+    </script>
+</body>
+
+</html>
